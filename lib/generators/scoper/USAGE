@@ -1,0 +1,8 @@
+Description:
+    Stubs out a new scoper. Pass the model name, either CamelCased or under_scored.
+
+Example:
+    rails generate scoper SomeThing
+
+    This will create:
+        app/scopers/some_thing_scoper.rb
