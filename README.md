@@ -7,7 +7,7 @@ Object oriented scoping for Rails applications in the YFU ecosystem.
 
     gem 'scoper', tag: 'v1.0-stable', github: 'icatcher-at/scoper'
 
-## Authorizer Classes
+## Scoper Classes
 
 Defines a set of classes and methods to help with authorized scoping.
 
