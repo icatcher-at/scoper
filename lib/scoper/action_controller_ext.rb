@@ -3,7 +3,7 @@ module Scoper
   # Adds helper methods of the Scoper module to ActionController::Base
   #
   module ActionControllerExtensions
-    
+
     ##
     # Returns a child object of Scoper::Base for the given +scope+ object injecting a +user+ object.
     # Invokes the +current_user+ method by default if +user+ is ommited.
@@ -15,10 +15,10 @@ module Scoper
     #    # => PostScoper
     #
     def scoper_object(scope, user = current_user, affiliation = current_affiliation)
-      @scoper_object ||= "#{scope.model_name}Scoper".constantize.new(user, affiliation, scope)
+      @scoper_object ||= scope.scoper_class.constantize.new(user, affiliation, scope)
     end
-  
-     
+
+
     ##
     # Creates an authorized scope object of the given +scope+ object and invokes +resolve+ on it.
     #
@@ -33,14 +33,14 @@ module Scoper
       scoper_object(scope).resolve
     end
     alias_method :resolve_scope!, :resolved_scope
-    
-    
+
+
     def self.included(c) #:nodoc:
       c.helper_method :scoper_object
       c.helper_method :resolved_scope
       c.helper_method :resolve_scope!
     end
-    
+
   end
 end
 
