@@ -15,7 +15,7 @@ module Scoper
     #    # => PostScoper
     #
     def scoper_object(scope, user = current_user, affiliation = current_affiliation)
-      @scoper_object ||= scope.scoper_class.new(user, affiliation, scope)
+      scope.scoper_class.new(user, affiliation, scope)
     end
 
 
